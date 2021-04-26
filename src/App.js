@@ -7,6 +7,12 @@ function App() {
     name : 'Arijit',
     prof : 'Singer'
   }
+
+  var style = {
+    color : '#fff',
+    backgroundColor : 'red',
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +21,8 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <h1>Love you React {5+3}</h1>
-        <p>{singer.name} is a famous {singer.prof}</p>
+        <h1 style={style}>Love you React {5+3}</h1>
+        <p style={{color : '#fff', backgroundColor : '#000'}}>{singer.name} is a famous {singer.prof}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
