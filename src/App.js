@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -66,6 +67,14 @@ function App() {
       </div>
 
 
+      {/* Counter Component using State  */}
+      <div style={{padding : '15px'}}>
+        <Counter></Counter>
+      </div>
+      
+      
+
+
 
     </div>
   );
@@ -120,6 +129,37 @@ function App() {
       </div>
     )
   }
+
+
+  // Counter Component using State 
+  
+  function Counter() {
+
+    // const [stateName, StateAction]
+    const [count, setCount] = useState(0);
+
+    // const handleIncreaseOne = () => {
+    //   const newCount = count + 1;
+    //   setCount(newCount);
+    // }
+    // const handleIncrease = () => setCount(count + 1);
+    
+    // const handleDecreaseOne = () => {
+    //   const newCount = count - 1;
+    //   setCount(newCount);
+    // }
+    // const handleDecrease = () => setCount(count - 1);
+
+    return (
+      <div className="Counter">
+        <h3>Quantity : {count}</h3>
+        <button onClick={() => setCount(count - 1)} style={{marginRight: '5px'}}>- Decrease</button>
+        <button onClick={() => setCount(count + 1)}>Increase +</button>
+      </div>
+    )
+  }
+
+
 
 
 }
