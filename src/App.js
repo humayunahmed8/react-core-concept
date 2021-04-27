@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -71,6 +71,15 @@ function App() {
       <div style={{padding : '15px'}}>
         <Counter></Counter>
       </div>
+      
+
+
+      {/* User Component Using Fetch Data  */}
+      <div style={{padding : '15px'}}>
+        <User></User>
+      </div>
+      
+
       
       
 
@@ -155,6 +164,34 @@ function App() {
         <h3>Quantity : {count}</h3>
         <button onClick={() => setCount(count - 1)} style={{marginRight: '5px'}}>- Decrease</button>
         <button onClick={() => setCount(count + 1)}>Increase +</button>
+      </div>
+    )
+  }
+
+
+  // User component using Fetch Data 
+
+  function User(){
+
+    // Declare State 
+    const [users, SetUser] = useState([]);
+
+    // Fetch Data (Use UseEffect for Data Load)
+    useEffect( () => {
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(data => SetUser(data));
+    }, [])
+
+    // Return User Component JSX 
+    return (
+      <div className="User">
+        <h3>Total User : {users.length}</h3>
+        <ul>
+          {
+            users.map(user => <li>{user.name}</li>)
+          }
+        </ul>
       </div>
     )
   }
